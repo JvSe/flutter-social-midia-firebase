@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -46,29 +47,29 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBWtTIlHFvdGeAxbZ7GXqnjJQYHIGI7Rq0',
-    appId: '1:837256889960:web:8fb078bd2860ae75ba9ddd',
-    messagingSenderId: '837256889960',
-    projectId: 'social-midia-f66b1',
-    authDomain: 'social-midia-f66b1.firebaseapp.com',
-    storageBucket: 'social-midia-f66b1.appspot.com',
+  static FirebaseOptions web = FirebaseOptions(
+    apiKey: dotenv.get('FIREBASE_API_KEY_WEB'),
+    appId: dotenv.get('FIREBASE_APPID_WEB'),
+    messagingSenderId: dotenv.get('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: dotenv.get('FIREBASE_PROJECT_ID'),
+    authDomain: dotenv.get('FIREBASE_AUTH_DOMAIN_WEB'),
+    storageBucket: dotenv.get('FIREBASE_STORAGE_BUCKET'),
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD04SRQEoFa4iUzblDODG9tdVICDsdQ7T0',
-    appId: '1:837256889960:android:5f2fe329a3d8268eba9ddd',
-    messagingSenderId: '837256889960',
-    projectId: 'social-midia-f66b1',
-    storageBucket: 'social-midia-f66b1.appspot.com',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.get('FIREBASE_API_KEY_ANDROID'),
+    appId: dotenv.get('FIREBASE_APPID_ANDROID'),
+    messagingSenderId: dotenv.get('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: dotenv.get('FIREBASE_PROJECT_ID'),
+    storageBucket: dotenv.get('FIREBASE_STORAGE_BUCKET'),
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCsCDZsRC6CGlOzhJxyG-1jYodsOss0kSs',
-    appId: '1:837256889960:ios:259d14e53dabd309ba9ddd',
-    messagingSenderId: '837256889960',
-    projectId: 'social-midia-f66b1',
-    storageBucket: 'social-midia-f66b1.appspot.com',
-    iosBundleId: 'com.example.socialMidiaFirebase',
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: dotenv.get('FIREBASE_API_KEY_IOS'),
+    appId: dotenv.get('FIREBASE_APPID_IOS'),
+    messagingSenderId: dotenv.get('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: dotenv.get('FIREBASE_PROJECT_ID'),
+    storageBucket: dotenv.get('FIREBASE_STORAGE_BUCKET'),
+    iosBundleId: dotenv.get('FIREBASE_IOS_BUNDLE_ID'),
   );
 }

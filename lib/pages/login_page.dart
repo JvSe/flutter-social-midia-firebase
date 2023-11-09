@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:social_midia_firebase/firebase_options.dart';
 import 'package:social_midia_firebase/helper/helper_functions.dart';
 import 'package:social_midia_firebase/widgets/button_widget.dart';
 import 'package:social_midia_firebase/widgets/my_text_field.dart';
@@ -21,6 +22,8 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
 
   void login() async {
+    print(DefaultFirebaseOptions.currentPlatform);
+
     showDialog(
       context: context,
       builder: (context) => const Center(
@@ -114,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                   // sign in button
                   ButtonWidget(
                     text: 'Login',
-                    onTap: () {},
+                    onTap: login,
                   ),
 
                   const SizedBox(
